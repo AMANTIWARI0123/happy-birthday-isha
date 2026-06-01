@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Isha ❤️</title><style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+overflow:hidden;
+color:white;
+text-align:center;
+}
+
+.page{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+input{
+padding:12px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin-top:15px;
+}
+
+.hidden{
+display:none;
+}
+
+.card{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:20px;
+max-width:700px;
+}
+
+.reason{
+margin:10px;
+padding:10px;
+background:rgba(255,255,255,0.12);
+border-radius:12px;
+}
+
+#typing{
+font-size:22px;
+min-height:70px;
+}
+
+.countdown{
+font-size:28px;
+font-weight:bold;
+margin:15px 0;
+}
+</style></head><body><div class="page" id="login"><h1>🎂 Birthday Girl Only 🎂</h1>
+<p>Enter your special password</p><input id="pass" placeholder="Password"><button onclick="checkPassword()">Enter ❤️</button>
+
+</div><div class="page hidden" id="main"><div class="card"><h1>Happy Birthday Isha Ji ❤️</h1><div class="countdown" id="countdown"></div><p id="typing"></p><h2>✨ Reasons You Are Amazing ✨</h2><div class="reason">Your smile can make a bad day better.</div>
+<div class="reason">You are genuinely unforgettable.</div>
+<div class="reason">You deserve every happiness.</div>
+<div class="reason">You make ordinary moments special.</div><button onclick="showGift()">Open Surprise 🎁</button>
+
+<div id="gift" class="hidden">
+<h2>💖 Surprise 💖</h2>
+<p>
+Thank you for existing.
+Today isn't special because it's your birthday.
+It's special because you are in this world.
+</p>
+</div></div></div><script>
+
+function checkPassword(){
+const p=document.getElementById("pass").value;
+
+if(p==="isha"){
+document.getElementById("login").classList.add("hidden");
+document.getElementById("main").classList.remove("hidden");
+}
+else{
+alert("Wrong Password ❤️");
+}
+}
+
+function showGift(){
+document.getElementById("gift").classList.remove("hidden");
+}
+
+const text =
+"Today is all about celebrating the wonderful person you are ❤️";
+
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(type,60);
+}
+}
+
+type();
+
+const birthday = new Date("2026-12-31");
+
+setInterval(()=>{
+const now=new Date();
+const diff=birthday-now;
+
+if(diff>0){
+const days=Math.floor(diff/(1000*60*60*24));
+document.getElementById("countdown").innerHTML=
+"🎉 Special Day Countdown: "+days+" days";
+}
+else{
+document.getElementById("countdown").innerHTML=
+"🎂 It's Your Birthday!";
+}
+},1000);
+
+</script></body>
+</html>
